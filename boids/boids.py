@@ -30,18 +30,18 @@ def update_boids(boids_tuple):
     # Fly towards the middle
     for current_boid in range(boids_number):
         for neighbor_boid in range(boids_number):
-            velocities_x[current_boid]=velocities_x[current_boid]+(dx)*0.01/boids_number
+            velocities_x[current_boid] =+ (dx)*0.01/boids_number
 
     for current_boid in range(boids_number):
         for neighbor_boid in range(boids_number):
-            velocities_y[current_boid]=velocities_y[current_boid]+(dy)*0.01/boids_number
+            velocities_y[current_boid] =+ (dy)*0.01/boids_number
 
     # Fly away from nearby boids
     for current_boid in range(boids_number):
         for neighbor_boid in range(boids_number):
             if (dx)**2 + (dy)**2 < 100:
-                velocities_x[current_boid] += (positions_x[current_boid]-positions_x[neighbor_boid])
-                velocities_y[current_boid] += (positions_y[current_boid]-positions_y[neighbor_boid])
+                velocities_x[current_boid] += (-(dx))
+                velocities_y[current_boid] += (-(dy))
 
     # Try to match speed with nearby boids
     for current_boid in range(boids_number):
